@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\WcfSSO" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="/sso" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/WcfSSO.pdb" publishTime="10/09/2014 11:51:10" />
+    <file relUrl="SrvEmployeeInfo.svc" publishTime="07/23/2014 11:06:31" />
+    <file relUrl="bin/WcfSSO.dll" publishTime="10/09/2014 11:51:11" />
+    <file relUrl="Web.config" publishTime="10/09/2014 11:51:20" />
+    <file relUrl="Service1.svc" publishTime="06/06/2014 17:30:46" />
+    <file relUrl="zzztest.aspx" publishTime="10/07/2014 18:49:36" />
+  </publishProfile>
+</publishData>

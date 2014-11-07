@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="physical_SSOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="physical_SSOModelStoreContainer">
+          <EntitySet Name="TACCESSCONTROL" EntityType="physical_SSOModel.Store.TACCESSCONTROL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TANNUALLEAVE" EntityType="physical_SSOModel.Store.TANNUALLEAVE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TCENTERINFO" EntityType="physical_SSOModel.Store.TCENTERINFO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEMPLOYEEINFO" EntityType="physical_SSOModel.Store.TEMPLOYEEINFO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TIPLIST" EntityType="physical_SSOModel.Store.TIPLIST" store:Type="Tables" store:Schema="dbo" store:Name="TIPLIST">
+            <DefiningQuery>SELECT 
+      [TIPLIST].[FID] AS [FID], 
+      [TIPLIST].[FIP] AS [FIP]
+      FROM [dbo].[TIPLIST] AS [TIPLIST]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TSYSTEMCONTROL" EntityType="physical_SSOModel.Store.TSYSTEMCONTROL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TSYSTEMINFO" EntityType="physical_SSOModel.Store.TSYSTEMINFO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TUSERGROUP" EntityType="physical_SSOModel.Store.TUSERGROUP" store:Type="Tables" store:Schema="dbo" store:Name="TUSERGROUP">
+            <DefiningQuery>SELECT 
+      [TUSERGROUP].[FCODE] AS [FCODE], 
+      [TUSERGROUP].[FDESC] AS [FDESC], 
+      [TUSERGROUP].[FPTGROUP] AS [FPTGROUP]
+      FROM [dbo].[TUSERGROUP] AS [TUSERGROUP]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="TACCESSCONTROL">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FEMPLOYEE" Type="varchar" Nullable="false" MaxLength="18" />
+          <Property Name="FACCESS" Type="varchar" MaxLength="20" />
+          <Property Name="FID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TANNUALLEAVE">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FLEVEL" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FDAYS" Type="int" />
+          <Property Name="FID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TCENTERINFO">
+          <Key>
+            <PropertyRef Name="FCENTERNO" />
+          </Key>
+          <Property Name="FCENTERNO" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="FCENTERNAME" Type="varchar" MaxLength="100" />
+          <Property Name="FADDRESS" Type="varchar" MaxLength="400" />
+          <Property Name="FLINKMAN" Type="varchar" MaxLength="40" />
+          <Property Name="FLINKTEL" Type="varchar" MaxLength="200" />
+          <Property Name="FFAX" Type="varchar" MaxLength="200" />
+          <Property Name="FEMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="FWEBSITE" Type="varchar" MaxLength="40" />
+          <Property Name="FSTARTTIME" Type="varchar" MaxLength="20" />
+          <Property Name="FENDTIME" Type="varchar" MaxLength="20" />
+          <Property Name="FSTARTBIT" Type="varchar" MaxLength="20" />
+          <Property Name="FTAXREG" Type="varchar" MaxLength="100" />
+          <Property Name="FSYMBOL" Type="varchar" MaxLength="20" />
+          <Property Name="FSYMBOL1" Type="varchar" MaxLength="20" />
+          <Property Name="FGUESTS" Type="varchar" MaxLength="100" />
+          <Property Name="FWD_PEAKSTART" Type="datetime" />
+          <Property Name="FWD_PEAKEND" Type="datetime" />
+          <Property Name="FSAT_PEAKSTART" Type="datetime" />
+          <Property Name="FSAT_PEAKEND" Type="datetime" />
+          <Property Name="FH_PEAKSTART" Type="datetime" />
+          <Property Name="FH_PEAKEND" Type="datetime" />
+          <Property Name="FTAX" Type="float" />
+          <Property Name="FACTIVE" Type="numeric" Nullable="false" Precision="1" />
+          <Property Name="FVERSION" Type="varchar" MaxLength="50" />
+          <Property Name="FSHORTFORM" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TEMPLOYEEINFO">
+          <Key>
+            <PropertyRef Name="FEMPLOYEE" />
+          </Key>
+          <Property Name="FEMPLOYEE" Type="varchar" Nullable="false" MaxLength="18" />
+          <Property Name="FID" Type="varchar" MaxLength="100" />
+          <Property Name="FNAME" Type="varchar" MaxLength="100" />
+          <Property Name="FSEX" Type="varchar" MaxLength="20" />
+          <Property Name="FCONTACT" Type="varchar" MaxLength="100" />
+          <Property Name="FEMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="FPOPUP" Type="varchar" MaxLength="20" />
+          <Property Name="FCHKINMSG" Type="varchar" MaxLength="2000" />
+          <Property Name="FLASTACCESS" Type="varchar" MaxLength="40" />
+          <Property Name="FSTATUS" Type="int" />
+          <Property Name="FUSERLEVEL" Type="int" />
+          <Property Name="FPASSWORD" Type="varchar" MaxLength="32" />
+          <Property Name="FSECOND_PWD" Type="varchar" MaxLength="32" />
+          <Property Name="FGROUP" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="FROLEID" Type="int" Nullable="false" />
+          <Property Name="ISUSER" Type="int" />
+          <Property Name="FATRAINER" Type="int" />
+          <Property Name="FSTRAINER" Type="int" />
+          <Property Name="FWTRAINER" Type="int" />
+          <Property Name="FSNAME" Type="varchar" MaxLength="40" />
+          <Property Name="FCENTER" Type="varchar" MaxLength="40" />
+          <Property Name="FCOMMTYPE" Type="varchar" MaxLength="4" />
+          <Property Name="FBLISTREMARK" Type="varchar" MaxLength="2000" />
+          <Property Name="FBLISTDATE" Type="datetime2" />
+          <Property Name="FPREPAREDBY" Type="varchar" MaxLength="100" />
+          <Property Name="FINDATE" Type="datetime2" />
+          <Property Name="FOUTDATE" Type="datetime2" />
+          <Property Name="FPTPLAN" Type="varchar" MaxLength="2" />
+          <Property Name="FIMAGE" Type="image" />
+          <Property Name="FCHECKOUTED" Type="int" />
+          <Property Name="FTYPE" Type="varchar" MaxLength="10" />
+          <Property Name="FANNUAL_LEAVE" Type="varchar" MaxLength="10" />
+          <Property Name="FFULL_TIME" Type="varchar" MaxLength="10" />
+          <Property Name="SHIFT" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“physical_SSO.dbo.TIPLIST”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="TIPLIST">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FIP" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TSYSTEMCONTROL">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FEMPLOYEE" Type="varchar" MaxLength="18" />
+          <Property Name="FSYSTEM" Type="varchar" MaxLength="20" />
+          <Property Name="FID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TSYSTEMINFO">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FSYSTEMNAME" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“physical_SSO.dbo.TUSERGROUP”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="TUSERGROUP">
+          <Key>
+            <PropertyRef Name="FCODE" />
+            <PropertyRef Name="FDESC" />
+            <PropertyRef Name="FPTGROUP" />
+          </Key>
+          <Property Name="FCODE" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FDESC" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FPTGROUP" Type="int" Nullable="false" />
+        </EntityType>
+        <Function Name="proc_employee_paginator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PCount" Type="int" Mode="InOut" />
+          <Parameter Name="RCount" Type="int" Mode="InOut" />
+          <Parameter Name="pFEMPLOYEE" Type="nvarchar" Mode="In" />
+          <Parameter Name="pFNAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="pFID" Type="nvarchar" Mode="In" />
+          <Parameter Name="pFCONTACT" Type="nvarchar" Mode="In" />
+          <Parameter Name="pFGROUP" Type="nvarchar" Mode="In" />
+          <Parameter Name="pFROLEID" Type="int" Mode="In" />
+          <Parameter Name="pFSTATUS" Type="int" Mode="In" />
+          <Parameter Name="pFINDATE1" Type="nvarchar" Mode="In" />
+          <Parameter Name="pFINDATE2" Type="nvarchar" Mode="In" />
+          <Parameter Name="sys_Begin" Type="int" Mode="In" />
+          <Parameter Name="sys_PageIndex" Type="int" Mode="In" />
+          <Parameter Name="sys_PageSize" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="physical_SSOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="physical_SSOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TACCESSCONTROL" EntityType="physical_SSOModel.TACCESSCONTROL" />
+          <EntitySet Name="TANNUALLEAVE" EntityType="physical_SSOModel.TANNUALLEAVE" />
+          <EntitySet Name="TCENTERINFO" EntityType="physical_SSOModel.TCENTERINFO" />
+          <EntitySet Name="TSYSTEMCONTROL" EntityType="physical_SSOModel.TSYSTEMCONTROL" />
+          <EntitySet Name="TSYSTEMINFO" EntityType="physical_SSOModel.TSYSTEMINFO" />
+          <EntitySet Name="TIPLIST" EntityType="physical_SSOModel.TIPLIST" />
+          <EntitySet Name="TEMPLOYEEINFO" EntityType="physical_SSOModel.TEMPLOYEEINFO" />
+          <EntitySet Name="TUSERGROUP" EntityType="physical_SSOModel.TUSERGROUP" />
+          <FunctionImport Name="proc_employee_paginator_count">
+            <Parameter Name="PCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="RCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="pFEMPLOYEE" Mode="In" Type="String" />
+            <Parameter Name="pFNAME" Mode="In" Type="String" />
+            <Parameter Name="pFID" Mode="In" Type="String" />
+            <Parameter Name="pFCONTACT" Mode="In" Type="String" />
+            <Parameter Name="pFGROUP" Mode="In" Type="String" />
+            <Parameter Name="pFROLEID" Mode="In" Type="Int32" />
+            <Parameter Name="pFSTATUS" Mode="In" Type="Int32" />
+            <Parameter Name="pFINDATE1" Mode="In" Type="String" />
+            <Parameter Name="pFINDATE2" Mode="In" Type="String" />
+            <Parameter Name="sys_Begin" Mode="In" Type="Int32" />
+            <Parameter Name="sys_PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="sys_PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="proc_employee_paginator" EntitySet="TEMPLOYEEINFO" ReturnType="Collection(physical_SSOModel.TEMPLOYEEINFO)">
+            <Parameter Name="PCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="RCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="pFEMPLOYEE" Mode="In" Type="String" />
+            <Parameter Name="pFNAME" Mode="In" Type="String" />
+            <Parameter Name="pFID" Mode="In" Type="String" />
+            <Parameter Name="pFCONTACT" Mode="In" Type="String" />
+            <Parameter Name="pFGROUP" Mode="In" Type="String" />
+            <Parameter Name="pFROLEID" Mode="In" Type="Int32" />
+            <Parameter Name="pFSTATUS" Mode="In" Type="Int32" />
+            <Parameter Name="pFINDATE1" Mode="In" Type="String" />
+            <Parameter Name="pFINDATE2" Mode="In" Type="String" />
+            <Parameter Name="sys_Begin" Mode="In" Type="Int32" />
+            <Parameter Name="sys_PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="sys_PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="TACCESSCONTROL">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FEMPLOYEE" Type="String" Nullable="false" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="FACCESS" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TANNUALLEAVE">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FLEVEL" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FDAYS" Type="Int32" />
+          <Property Name="FID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TCENTERINFO">
+          <Key>
+            <PropertyRef Name="FCENTERNO" />
+          </Key>
+          <Property Name="FCENTERNO" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="FCENTERNAME" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FADDRESS" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="FLINKMAN" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="FLINKTEL" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="FFAX" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="FEMAIL" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FWEBSITE" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="FSTARTTIME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FENDTIME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FSTARTBIT" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FTAXREG" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FSYMBOL" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FSYMBOL1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FGUESTS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FWD_PEAKSTART" Type="DateTime" />
+          <Property Name="FWD_PEAKEND" Type="DateTime" />
+          <Property Name="FSAT_PEAKSTART" Type="DateTime" />
+          <Property Name="FSAT_PEAKEND" Type="DateTime" />
+          <Property Name="FH_PEAKSTART" Type="DateTime" />
+          <Property Name="FH_PEAKEND" Type="DateTime" />
+          <Property Name="FTAX" Type="Double" />
+          <Property Name="FACTIVE" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+          <Property Name="FVERSION" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FSHORTFORM" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TSYSTEMCONTROL">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FEMPLOYEE" Type="String" MaxLength="18" Unicode="false" FixedLength="false" />
+          <Property Name="FSYSTEM" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TSYSTEMINFO">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FSYSTEMNAME" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TIPLIST">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Type="Int32" Name="FID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FIP" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TEMPLOYEEINFO">
+          <Key>
+            <PropertyRef Name="FEMPLOYEE" />
+          </Key>
+          <Property Type="String" Name="FEMPLOYEE" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FID" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FNAME" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FSEX" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FCONTACT" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FEMAIL" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FPOPUP" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FCHKINMSG" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FLASTACCESS" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FSTATUS" />
+          <Property Type="Int32" Name="FUSERLEVEL" />
+          <Property Type="String" Name="FPASSWORD" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FSECOND_PWD" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FGROUP" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FROLEID" Nullable="false" />
+          <Property Type="Int32" Name="ISUSER" />
+          <Property Type="Int32" Name="FATRAINER" />
+          <Property Type="Int32" Name="FSTRAINER" />
+          <Property Type="Int32" Name="FWTRAINER" />
+          <Property Type="String" Name="FSNAME" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FCENTER" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FCOMMTYPE" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FBLISTREMARK" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FBLISTDATE" />
+          <Property Type="String" Name="FPREPAREDBY" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FINDATE" />
+          <Property Type="DateTime" Name="FOUTDATE" />
+          <Property Type="String" Name="FPTPLAN" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="FIMAGE" MaxLength="Max" FixedLength="false" />
+          <Property Type="Int32" Name="FCHECKOUTED" />
+          <Property Type="String" Name="FTYPE" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FANNUAL_LEAVE" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FFULL_TIME" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SHIFT" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TUSERGROUP">
+          <Key>
+            <PropertyRef Name="FCODE" />
+            <PropertyRef Name="FDESC" />
+            <PropertyRef Name="FPTGROUP" />
+          </Key>
+          <Property Type="String" Name="FCODE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FDESC" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FPTGROUP" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="physical_SSOModelStoreContainer" CdmEntityContainer="physical_SSOEntities">
+          <EntitySetMapping Name="TACCESSCONTROL">
+            <EntityTypeMapping TypeName="physical_SSOModel.TACCESSCONTROL">
+              <MappingFragment StoreEntitySet="TACCESSCONTROL">
+                <ScalarProperty Name="FEMPLOYEE" ColumnName="FEMPLOYEE" />
+                <ScalarProperty Name="FACCESS" ColumnName="FACCESS" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TANNUALLEAVE">
+            <EntityTypeMapping TypeName="physical_SSOModel.TANNUALLEAVE">
+              <MappingFragment StoreEntitySet="TANNUALLEAVE">
+                <ScalarProperty Name="FLEVEL" ColumnName="FLEVEL" />
+                <ScalarProperty Name="FDAYS" ColumnName="FDAYS" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCENTERINFO">
+            <EntityTypeMapping TypeName="physical_SSOModel.TCENTERINFO">
+              <MappingFragment StoreEntitySet="TCENTERINFO">
+                <ScalarProperty Name="FCENTERNO" ColumnName="FCENTERNO" />
+                <ScalarProperty Name="FCENTERNAME" ColumnName="FCENTERNAME" />
+                <ScalarProperty Name="FADDRESS" ColumnName="FADDRESS" />
+                <ScalarProperty Name="FLINKMAN" ColumnName="FLINKMAN" />
+                <ScalarProperty Name="FLINKTEL" ColumnName="FLINKTEL" />
+                <ScalarProperty Name="FFAX" ColumnName="FFAX" />
+                <ScalarProperty Name="FEMAIL" ColumnName="FEMAIL" />
+                <ScalarProperty Name="FWEBSITE" ColumnName="FWEBSITE" />
+                <ScalarProperty Name="FSTARTTIME" ColumnName="FSTARTTIME" />
+                <ScalarProperty Name="FENDTIME" ColumnName="FENDTIME" />
+                <ScalarProperty Name="FSTARTBIT" ColumnName="FSTARTBIT" />
+                <ScalarProperty Name="FTAXREG" ColumnName="FTAXREG" />
+                <ScalarProperty Name="FSYMBOL" ColumnName="FSYMBOL" />
+                <ScalarProperty Name="FSYMBOL1" ColumnName="FSYMBOL1" />
+                <ScalarProperty Name="FGUESTS" ColumnName="FGUESTS" />
+                <ScalarProperty Name="FWD_PEAKSTART" ColumnName="FWD_PEAKSTART" />
+                <ScalarProperty Name="FWD_PEAKEND" ColumnName="FWD_PEAKEND" />
+                <ScalarProperty Name="FSAT_PEAKSTART" ColumnName="FSAT_PEAKSTART" />
+                <ScalarProperty Name="FSAT_PEAKEND" ColumnName="FSAT_PEAKEND" />
+                <ScalarProperty Name="FH_PEAKSTART" ColumnName="FH_PEAKSTART" />
+                <ScalarProperty Name="FH_PEAKEND" ColumnName="FH_PEAKEND" />
+                <ScalarProperty Name="FTAX" ColumnName="FTAX" />
+                <ScalarProperty Name="FACTIVE" ColumnName="FACTIVE" />
+                <ScalarProperty Name="FVERSION" ColumnName="FVERSION" />
+                <ScalarProperty Name="FSHORTFORM" ColumnName="FSHORTFORM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSYSTEMCONTROL">
+            <EntityTypeMapping TypeName="physical_SSOModel.TSYSTEMCONTROL">
+              <MappingFragment StoreEntitySet="TSYSTEMCONTROL">
+                <ScalarProperty Name="FEMPLOYEE" ColumnName="FEMPLOYEE" />
+                <ScalarProperty Name="FSYSTEM" ColumnName="FSYSTEM" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSYSTEMINFO">
+            <EntityTypeMapping TypeName="physical_SSOModel.TSYSTEMINFO">
+              <MappingFragment StoreEntitySet="TSYSTEMINFO">
+                <ScalarProperty Name="FSYSTEMNAME" ColumnName="FSYSTEMNAME" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPLIST">
+            <EntityTypeMapping TypeName="physical_SSOModel.TIPLIST">
+              <MappingFragment StoreEntitySet="TIPLIST">
+                <ScalarProperty Name="FIP" ColumnName="FIP" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEMPLOYEEINFO">
+            <EntityTypeMapping TypeName="physical_SSOModel.TEMPLOYEEINFO">
+              <MappingFragment StoreEntitySet="TEMPLOYEEINFO">
+                <ScalarProperty Name="SHIFT" ColumnName="SHIFT" />
+                <ScalarProperty Name="FFULL_TIME" ColumnName="FFULL_TIME" />
+                <ScalarProperty Name="FANNUAL_LEAVE" ColumnName="FANNUAL_LEAVE" />
+                <ScalarProperty Name="FTYPE" ColumnName="FTYPE" />
+                <ScalarProperty Name="FCHECKOUTED" ColumnName="FCHECKOUTED" />
+                <ScalarProperty Name="FIMAGE" ColumnName="FIMAGE" />
+                <ScalarProperty Name="FPTPLAN" ColumnName="FPTPLAN" />
+                <ScalarProperty Name="FOUTDATE" ColumnName="FOUTDATE" />
+                <ScalarProperty Name="FINDATE" ColumnName="FINDATE" />
+                <ScalarProperty Name="FPREPAREDBY" ColumnName="FPREPAREDBY" />
+                <ScalarProperty Name="FBLISTDATE" ColumnName="FBLISTDATE" />
+                <ScalarProperty Name="FBLISTREMARK" ColumnName="FBLISTREMARK" />
+                <ScalarProperty Name="FCOMMTYPE" ColumnName="FCOMMTYPE" />
+                <ScalarProperty Name="FCENTER" ColumnName="FCENTER" />
+                <ScalarProperty Name="FSNAME" ColumnName="FSNAME" />
+                <ScalarProperty Name="FWTRAINER" ColumnName="FWTRAINER" />
+                <ScalarProperty Name="FSTRAINER" ColumnName="FSTRAINER" />
+                <ScalarProperty Name="FATRAINER" ColumnName="FATRAINER" />
+                <ScalarProperty Name="ISUSER" ColumnName="ISUSER" />
+                <ScalarProperty Name="FROLEID" ColumnName="FROLEID" />
+                <ScalarProperty Name="FGROUP" ColumnName="FGROUP" />
+                <ScalarProperty Name="FSECOND_PWD" ColumnName="FSECOND_PWD" />
+                <ScalarProperty Name="FPASSWORD" ColumnName="FPASSWORD" />
+                <ScalarProperty Name="FUSERLEVEL" ColumnName="FUSERLEVEL" />
+                <ScalarProperty Name="FSTATUS" ColumnName="FSTATUS" />
+                <ScalarProperty Name="FLASTACCESS" ColumnName="FLASTACCESS" />
+                <ScalarProperty Name="FCHKINMSG" ColumnName="FCHKINMSG" />
+                <ScalarProperty Name="FPOPUP" ColumnName="FPOPUP" />
+                <ScalarProperty Name="FEMAIL" ColumnName="FEMAIL" />
+                <ScalarProperty Name="FCONTACT" ColumnName="FCONTACT" />
+                <ScalarProperty Name="FSEX" ColumnName="FSEX" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="FEMPLOYEE" ColumnName="FEMPLOYEE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TUSERGROUP">
+            <EntityTypeMapping TypeName="physical_SSOModel.TUSERGROUP">
+              <MappingFragment StoreEntitySet="TUSERGROUP">
+                <ScalarProperty Name="FPTGROUP" ColumnName="FPTGROUP" />
+                <ScalarProperty Name="FDESC" ColumnName="FDESC" />
+                <ScalarProperty Name="FCODE" ColumnName="FCODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="proc_employee_paginator_count" FunctionName="physical_SSOModel.Store.proc_employee_paginator" />
+          <FunctionImportMapping FunctionImportName="proc_employee_paginator" FunctionName="physical_SSOModel.Store.proc_employee_paginator" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="physical_SSO">
+        <EntityTypeShape EntityType="physical_SSOModel.TACCESSCONTROL" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5879931640625" IsExpanded="true" />
+        <EntityTypeShape EntityType="physical_SSOModel.TANNUALLEAVE" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5879931640624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="physical_SSOModel.TCENTERINFO" Width="1.5" PointX="0.75" PointY="3.75" Height="5.7904264322916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="physical_SSOModel.TSYSTEMCONTROL" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5879931640624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="physical_SSOModel.TSYSTEMINFO" Width="1.5" PointX="4.75" PointY="3.75" Height="1.3969734700520822" IsExpanded="true" />
+        <EntityTypeShape EntityType="physical_SSOModel.TIPLIST" Width="1.5" PointX="5.375" PointY="6.75" Height="1.3969734700520817" />
+        <EntityTypeShape EntityType="physical_SSOModel.TEMPLOYEEINFO" Width="1.5" PointX="7.375" PointY="3.75" Height="7.5096036783854174" />
+        <EntityTypeShape EntityType="physical_SSOModel.TUSERGROUP" Width="1.5" PointX="7.375" PointY="0.75" Height="1.5879931640624996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
